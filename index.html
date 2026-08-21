@@ -9,9 +9,11 @@
         header { background-color: #800020; color: white; padding: 20px; }
         h1 { margin: 0; }
         .container { padding: 20px; }
-        .products { display: flex; flex-wrap: wrap; justify-center: center; gap: 15px; margin-top: 20px; }
-        .card { background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); width: 250px; margin: 0 auto; }
-        .btn { background-color: #25D366; color: white; padding: 10px 15px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block; margin-top: 10px; }
+        .products { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-top: 20px; }
+        .card { background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); width: 260px; text-align: center; }
+        .card img { width: 100%; height: 320px; object-fit: cover; border-radius: 5px; }
+        .price { color: #800020; font-weight: bold; font-size: 18px; margin: 10px 0; }
+        .btn { background-color: #25D366; color: white; padding: 10px 15px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block; margin-top: 5px; }
     </style>
 </head>
 <body>
@@ -22,25 +24,16 @@
     </header>
 
     <div class="container">
-        <h2>Our Collections</h2>
+        <h2>Our Latest Collections</h2>
+        
         <div class="products">
-            <div class="card">
-                <h3>Kurtis</h3>
-                <p>Trending & Stylish Wear</p>
-            </div>
-            <div class="card">
-                <h3>Chudithar Sets</h3>
-                <p>Elegant Pure Cotton & Silk Sets</p>
-            </div>
-            <div class="card">
-                <h3>Nighties</h3>
-                <p>Comfortable Daily Wear</p>
-            </div>
-        </div>
 
-        <br><br>
-        <a href="https://wa.me/917825076622" class="btn" target="_blank">Order on WhatsApp</a>
-    </div>
+            <!-- Ikkat Black Set -->
+            <div class="card">
+                <img src="file_000000002d408208a55ba1143565de30.png" alt="Ikkat Black Set">
+                <h3>Ikkat Black Colour 3 Piece Set</h3>
+                <div class="price">₹899</div>
+                <a href="https://wa.me/917825076622?text=Hi,%20I%20want%20to%20buy%20Ikkat%20Black%20Colour%203%20Piece%20Set" class="btn" target="_blank">Order on WhatsApp</a>
+            </div>
 
-</body>
-</html>
+            
