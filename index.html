@@ -575,20 +575,77 @@
                 </div>
             </div>
 
-            <!-- Product 9 -->
+            <!-- Product 10 -->
             <div class="product-card" data-category="kurtis">
-                <span class="product-tag">Trending</span>
-                <img src="file_000000003f8472099099f5024b5dc84e.png" class="product-img" alt="Kurti Collection">
+                <span class="product-tag popular">Best Seller</span>
+                <img src="file_000000002d408208a55ba1143565de30.png" class="product-img" alt="Kurti">
                 <div class="product-info">
-                    <span class="product-cat">Kurtis 3 Pcs Set</span>
-                    <h3 class="product-title">AngiraAura Kurti Set 9</h3>
-                    <a href="https://wa.me/917825076622?text=Hi,%20I%20am%20interested%20in%20AngiraAura%20Kurti%20Set%209" class="order-btn">
+                    <span class="product-cat">Kurti Collection</span>
+                    <h3 class="product-title">AngiraAura Ethnic Kurti 10</h3>
+                    <a href="https://wa.me/917825076622?text=Hi,%20I%20am%20interested%20in%20AngiraAura%20Ethnic%20Kurti%2010" class="order-btn">
                         <i class="fab fa-whatsapp"></i> Order Now
                     </a>
                 </div>
             </div>
 
-            <!-- Product 10 -->
-            <div class="product-card" data-category="kurtis">
-                <span class="product-tag popular">Best Seller</span>
-                <img src="file_000000002d408208a55ba1143565de
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <h3>AngiraAura Clothing</h3>
+        <p>Madurai, Tamil Nadu | Orders & Queries: +91 7825076622</p>
+        <div class="social-links">
+            <a href="https://instagram.com/angiraauraclothing"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/917825076622"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        <p style="margin-top: 15px; font-size: 11px; color: #777;">&copy; 2026 AngiraAura Clothing. All rights reserved.</p>
+    </footer>
+
+    <!-- Filter, Search & Modal Scripts -->
+    <script>
+        function openQualityModal() {
+            document.getElementById('qualityModal').style.display = 'flex';
+        }
+
+        function closeQualityModal(event) {
+            if (event.target.classList.contains('modal-overlay')) {
+                document.getElementById('qualityModal').style.display = 'none';
+            }
+        }
+
+        function closeQualityModalDirect() {
+            document.getElementById('qualityModal').style.display = 'none';
+        }
+
+        function filterCategory(category, element) {
+            let buttons = document.querySelectorAll('.cat-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            element.classList.add('active');
+
+            let cards = document.querySelectorAll('.product-card');
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        function filterProducts() {
+            let input = document.getElementById('searchInput').value.toLowerCase();
+            let cards = document.querySelectorAll('.product-card');
+            cards.forEach(card => {
+                let title = card.querySelector('.product-title').innerText.toLowerCase();
+                let cat = card.querySelector('.product-cat').innerText.toLowerCase();
+                if (title.includes(input) || cat.includes(input)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
