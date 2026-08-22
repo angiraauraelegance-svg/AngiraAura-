@@ -168,6 +168,12 @@
             display: inline-flex;
             align-items: center;
             gap: 6px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .badge-btn:hover {
+            background: rgba(255,255,255,0.25);
         }
 
         .whatsapp-hero-btn {
@@ -182,6 +188,66 @@
             align-items: center;
             gap: 8px;
             box-shadow: 0 4px 12px rgba(37,211,102,0.3);
+        }
+
+        /* Modal Popup Styles */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: #fff;
+            padding: 25px;
+            border-radius: 16px;
+            max-width: 380px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            animation: popup 0.3s ease-out;
+        }
+
+        @keyframes popup {
+            from { transform: scale(0.85); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 22px;
+            cursor: pointer;
+            color: #888;
+        }
+
+        .modal-icon {
+            font-size: 36px;
+            color: #d4af37;
+            margin-bottom: 10px;
+        }
+
+        .modal-content h3 {
+            color: #6b001d;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .modal-content p {
+            font-size: 13px;
+            color: #444;
+            line-height: 1.6;
+            font-style: italic;
         }
 
         /* Categories Filter */
@@ -376,12 +442,22 @@
         <h2>AngiraAura Clothing</h2>
         <p>Elevate Your Everyday Style with Premium Ethnic Wear</p>
         <div class="badges">
-            <span class="badge-btn"><i class="fas fa-star"></i> Premium Quality</span>
+            <span class="badge-btn" onclick="openQualityModal()"><i class="fas fa-star"></i> Premium Quality</span>
             <span class="badge-btn"><i class="fas fa-bolt"></i> Fast Express Shipping</span>
         </div>
         <a href="https://wa.me/917825076622?text=Hello%20AngiraAura%20Clothing,%20I%20want%20to%20view%20your%20latest%20catalog" class="whatsapp-hero-btn">
             <i class="fab fa-whatsapp"></i> Instant WhatsApp Order
         </a>
+    </div>
+
+    <!-- Quality Promise Modal Popup -->
+    <div id="qualityModal" class="modal-overlay" onclick="closeQualityModal(event)">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeQualityModalDirect()">&times;</span>
+            <i class="fas fa-award modal-icon"></i>
+            <h3>Our Quality Promise</h3>
+            <p>"To us, Premium Quality is not just a badge—it is our promise. We blend high-grade textiles with expert craftsmanship to create ethnic wear that looks luxurious, feels light, and stands the test of time."</p>
+        </div>
     </div>
 
     <!-- Category Filters -->
@@ -421,7 +497,7 @@
                 </div>
             </div>
 
-            <!-- Product 3 (kurtis) -->
+            <!-- Product 3 -->
             <div class="product-card" data-category="kurtis">
                 <span class="product-tag">Trending</span>
                 <img src="file_00000000ed9c72088fd05f4cdb8d10e8.png" class="product-img" alt="Kurti Collection">
@@ -460,7 +536,7 @@
                 </div>
             </div>
 
-            <!-- Product 6 (Updated from Nighties) -->
+            <!-- Product 6 -->
             <div class="product-card" data-category="kurtis">
                 <span class="product-tag popular">Best Seller</span>
                 <img src="file_00000000a05072089d3d910fa3b95ca1.png" class="product-img" alt="Kurti Collection">
@@ -499,7 +575,7 @@
                 </div>
             </div>
 
-            <!-- Product 9 (Updated from Nighties) -->
+            <!-- Product 9 -->
             <div class="product-card" data-category="kurtis">
                 <span class="product-tag">Trending</span>
                 <img src="file_000000003f8472099099f5024b5dc84e.png" class="product-img" alt="Kurti Collection">
@@ -515,61 +591,4 @@
             <!-- Product 10 -->
             <div class="product-card" data-category="kurtis">
                 <span class="product-tag popular">Best Seller</span>
-                <img src="file_000000002d408208a55ba1143565de30.png" class="product-img" alt="Kurti">
-                <div class="product-info">
-                    <span class="product-cat">Kurti Collection</span>
-                    <h3 class="product-title">AngiraAura Ethnic Kurti 10</h3>
-                    <a href="https://wa.me/917825076622?text=Hi,%20I%20am%20interested%20in%20AngiraAura%20Ethnic%20Kurti%2010" class="order-btn">
-                        <i class="fab fa-whatsapp"></i> Order Now
-                    </a>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer>
-        <h3>AngiraAura Clothing</h3>
-        <p>Delhi, Tamil Nadu | Orders & Queries: +91 7825076622</p>
-        <div class="social-links">
-            <a href="https://instagram.com/angiraauraclothing"><i class="fab fa-instagram"></i></a>
-            <a href="https://wa.me/917825076622"><i class="fab fa-whatsapp"></i></a>
-        </div>
-        <p style="margin-top: 15px; font-size: 11px; color: #777;">&copy; 2026 AngiraAura Clothing. All rights reserved.</p>
-    </footer>
-
-    <!-- Filter & Search Script -->
-    <script>
-        function filterCategory(category, element) {
-            let buttons = document.querySelectorAll('.cat-btn');
-            buttons.forEach(btn => btn.classList.remove('active'));
-            element.classList.add('active');
-
-            let cards = document.querySelectorAll('.product-card');
-            cards.forEach(card => {
-                if (category === 'all' || card.getAttribute('data-category') === category) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        }
-
-        function filterProducts() {
-            let input = document.getElementById('searchInput').value.toLowerCase();
-            let cards = document.querySelectorAll('.product-card');
-            cards.forEach(card => {
-                let title = card.querySelector('.product-title').innerText.toLowerCase();
-                let cat = card.querySelector('.product-cat').innerText.toLowerCase();
-                if (title.includes(input) || cat.includes(input)) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        }
-    </script>
-</body>
-</html>
-                
+                <img src="file_000000002d408208a55ba1143565de
