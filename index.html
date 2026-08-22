@@ -442,8 +442,8 @@
         <h2>AngiraAura Clothing</h2>
         <p>Elevate Your Everyday Style with Premium Ethnic Wear</p>
         <div class="badges">
-            <span class="badge-btn" onclick="openQualityModal()"><i class="fas fa-star"></i> Premium Quality</span>
-            <span class="badge-btn"><i class="fas fa-bolt"></i> Fast Express Shipping</span>
+            <span class="badge-btn" onclick="openModal('qualityModal')"><i class="fas fa-star"></i> Premium Quality</span>
+            <span class="badge-btn" onclick="openModal('shippingModal')"><i class="fas fa-bolt"></i> Fast Express Shipping</span>
         </div>
         <a href="https://wa.me/917825076622?text=Hello%20AngiraAura%20Clothing,%20I%20want%20to%20view%20your%20latest%20catalog" class="whatsapp-hero-btn">
             <i class="fab fa-whatsapp"></i> Instant WhatsApp Order
@@ -451,12 +451,22 @@
     </div>
 
     <!-- Quality Promise Modal Popup -->
-    <div id="qualityModal" class="modal-overlay" onclick="closeQualityModal(event)">
+    <div id="qualityModal" class="modal-overlay" onclick="closeModalOnOverlay(event, 'qualityModal')">
         <div class="modal-content">
-            <span class="close-modal" onclick="closeQualityModalDirect()">&times;</span>
+            <span class="close-modal" onclick="closeModal('qualityModal')">&times;</span>
             <i class="fas fa-award modal-icon"></i>
             <h3>Our Quality Promise</h3>
             <p>"To us, Premium Quality is not just a badge—it is our promise. We blend high-grade textiles with expert craftsmanship to create ethnic wear that looks luxurious, feels light, and stands the test of time."</p>
+        </div>
+    </div>
+
+    <!-- Express Shipping Modal Popup -->
+    <div id="shippingModal" class="modal-overlay" onclick="closeModalOnOverlay(event, 'shippingModal')">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('shippingModal')">&times;</span>
+            <i class="fas fa-shipping-fast modal-icon"></i>
+            <h3>Fast Express Shipping</h3>
+            <p>"At AngiraAura, we value your time as much as your style. We dispatch all orders within 24–48 hours through top-tier express courier partners, ensuring safe, tamper-proof, and lightning-fast delivery straight to your doorstep across India."</p>
         </div>
     </div>
 
@@ -575,11 +585,11 @@
                 </div>
             </div>
 
-            <!-- Product 10 -->
+            <!-- Product 9 -->
             <div class="product-card" data-category="kurtis">
-                <span class="product-tag popular">Best Seller</span>
-                <img src="file_000000002d408208a55ba1143565de30.png" class="product-img" alt="Kurti">
-                <div class="product-info">
+                <span class="product-tag">Trending</span>
+                <img src="file_000000003f8472099099f5024b5dc84e.png" class
+                    <div class="product-info">
                     <span class="product-cat">Kurti Collection</span>
                     <h3 class="product-title">AngiraAura Ethnic Kurti 10</h3>
                     <a href="https://wa.me/917825076622?text=Hi,%20I%20am%20interested%20in%20AngiraAura%20Ethnic%20Kurti%2010" class="order-btn">
@@ -594,7 +604,7 @@
     <!-- Footer -->
     <footer>
         <h3>AngiraAura Clothing</h3>
-        <p>Delhi, Tamil Nadu | Orders & Queries: +91 7825076622</p>
+        <p>Madurai, Tamil Nadu | Orders & Queries: +91 7825076622</p>
         <div class="social-links">
             <a href="https://instagram.com/angiraauraclothing"><i class="fab fa-instagram"></i></a>
             <a href="https://wa.me/917825076622"><i class="fab fa-whatsapp"></i></a>
@@ -602,20 +612,20 @@
         <p style="margin-top: 15px; font-size: 11px; color: #777;">&copy; 2026 AngiraAura Clothing. All rights reserved.</p>
     </footer>
 
-    <!-- Filter, Search & Modal Scripts -->
+    <!-- Scripts -->
     <script>
-        function openQualityModal() {
-            document.getElementById('qualityModal').style.display = 'flex';
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'flex';
         }
 
-        function closeQualityModal(event) {
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        function closeModalOnOverlay(event, modalId) {
             if (event.target.classList.contains('modal-overlay')) {
-                document.getElementById('qualityModal').style.display = 'none';
+                document.getElementById(modalId).style.display = 'none';
             }
-        }
-
-        function closeQualityModalDirect() {
-            document.getElementById('qualityModal').style.display = 'none';
         }
 
         function filterCategory(category, element) {
