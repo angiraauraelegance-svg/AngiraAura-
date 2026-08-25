@@ -1,4 +1,4 @@
-it is <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ta">
 <head>
     <meta charset="UTF-8">
@@ -17,19 +17,20 @@ it is <!DOCTYPE html>
         }
 
         body {
-            background-color: #faf7f5;
+            background-color: #fcf9f6;
             color: #333;
             overflow-x: hidden;
         }
 
-        /* Top Announcement Ticker */
+        /* Top Announcement Ticker Bar */
         .ticker-bar {
-            background: #4a0014;
+            background: #500323;
             color: #fff;
             padding: 8px 0;
             font-size: 13px;
             overflow: hidden;
             white-space: nowrap;
+            border-bottom: 1px solid #d4af37;
         }
 
         .ticker-content {
@@ -87,9 +88,9 @@ it is <!DOCTYPE html>
         }
 
         .brand-text h1 {
-            font-size: 21px;
+            font-size: 22px;
             font-weight: 700;
-            color: #6b001d;
+            color: #7b0d38;
             line-height: 1.1;
         }
 
@@ -104,15 +105,15 @@ it is <!DOCTYPE html>
         .header-wa-btn {
             background: #25d366;
             color: #fff;
-            width: 40px;
-            height: 40px;
+            width: 42px;
+            height: 42px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 20px;
+            font-size: 22px;
             text-decoration: none;
-            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.35);
             transition: transform 0.3s ease;
         }
 
@@ -120,54 +121,86 @@ it is <!DOCTYPE html>
             transform: scale(1.1);
         }
 
-        /* Hero Welcome Section with Animations */
+        /* Hero Section with Animated Kurti Girl Model & Greetings */
         .hero-welcome {
-            background: linear-gradient(135deg, #4a0014 0%, #6b001d 50%, #2b000b 100%);
+            background: linear-gradient(135deg, #7b0d38 0%, #4a0321 60%, #290011 100%);
             color: #fff;
-            padding: 45px 20px;
+            padding: 35px 20px 40px 20px;
             text-align: center;
             position: relative;
             overflow: hidden;
-            box-shadow: inset 0 -10px 20px rgba(0,0,0,0.15);
+            box-shadow: inset 0 -10px 20px rgba(0,0,0,0.2);
         }
 
-        /* Animated Greeting Icon (Vanakkam / Folded Hands) */
-        .vanakkam-box {
-            display: inline-block;
-            margin-bottom: 12px;
+        /* Model Photo Frame Container */
+        .model-container {
             position: relative;
-        }
-
-        .vanakkam-icon {
-            font-size: 48px;
-            color: #d4af37;
             display: inline-block;
-            animation: foldGreeting 2.5s ease-in-out infinite;
-            filter: drop-shadow(0 0 12px rgba(212, 175, 55, 0.6));
+            margin-bottom: 15px;
         }
 
-        @keyframes foldGreeting {
-            0%, 100% { transform: translateY(0) scale(1); }
-            50% { transform: translateY(-8px) scale(1.1); }
+        .model-avatar {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #d4af37;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+            animation: auraGlow 3s infinite alternate, floatModel 4s ease-in-out infinite;
+        }
+
+        @keyframes auraGlow {
+            0% { box-shadow: 0 0 12px rgba(212, 175, 55, 0.5); }
+            100% { box-shadow: 0 0 25px rgba(212, 175, 55, 0.9), 0 0 35px rgba(255, 215, 0, 0.4); }
+        }
+
+        @keyframes floatModel {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+        }
+
+        /* Animated Floating Vanakkam Badge on Model */
+        .vanakkam-badge {
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(45deg, #d4af37, #f7e08b);
+            color: #4a0321;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 5px 16px;
+            border-radius: 20px;
+            white-space: nowrap;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            animation: pulseBadge 2s infinite alternate;
+        }
+
+        @keyframes pulseBadge {
+            0% { transform: translateX(-50%) scale(1); }
+            100% { transform: translateX(-50%) scale(1.08); }
         }
 
         .welcome-title {
-            font-size: 26px;
+            font-size: 24px;
             font-weight: 700;
             color: #ffffff;
-            margin-bottom: 6px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            margin-top: 10px;
+            margin-bottom: 4px;
         }
 
         .welcome-subtitle {
-            font-size: 14px;
-            color: #f1d38a;
+            font-size: 13px;
+            color: #f5d78e;
             font-weight: 500;
-            margin-bottom: 20px;
+            margin-bottom: 22px;
             letter-spacing: 0.5px;
         }
 
-        /* Hero Features Badges */
+        /* Hero Interactive Badges */
         .hero-badges {
             display: flex;
             justify-content: center;
@@ -178,29 +211,35 @@ it is <!DOCTYPE html>
 
         .h-badge {
             background: rgba(255, 255, 255, 0.12);
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(212, 175, 55, 0.4);
+            backdrop-filter: blur(6px);
+            border: 1px solid rgba(212, 175, 55, 0.5);
             color: #fff;
-            padding: 7px 16px;
+            padding: 8px 16px;
             border-radius: 25px;
             font-size: 12px;
+            font-weight: 500;
             display: inline-flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
             cursor: pointer;
             transition: all 0.3s ease;
         }
 
-        .h-badge:hover {
-            background: rgba(212, 175, 55, 0.25);
-            transform: translateY(-2px);
+        .h-badge i {
+            color: #d4af37;
         }
 
-        /* Main CTA Button */
+        .h-badge:hover {
+            background: rgba(212, 175, 55, 0.3);
+            transform: translateY(-2px);
+            border-color: #f7e08b;
+        }
+
+        /* Main WhatsApp Order Button */
         .hero-cta {
             background: linear-gradient(45deg, #25d366, #128c7e);
             color: #fff;
-            padding: 12px 28px;
+            padding: 13px 30px;
             border-radius: 30px;
             text-decoration: none;
             font-weight: 600;
@@ -218,10 +257,10 @@ it is <!DOCTYPE html>
             100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
         }
 
-        /* PAYMENT & NO COD NOTICE SECTION */
+        /* PAYMENT & NO COD NOTICE CARD */
         .payment-banner {
             max-width: 1100px;
-            margin: 20px auto;
+            margin: 22px auto 10px auto;
             padding: 0 16px;
         }
 
@@ -234,15 +273,15 @@ it is <!DOCTYPE html>
             flex-direction: column;
             align-items: center;
             text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
-            background: linear-gradient(180deg, #ffffff 0%, #fffdf8 100%);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            background: linear-gradient(180deg, #ffffff 0%, #fffdf9 100%);
         }
 
         .payment-header {
             display: flex;
             align-items: center;
             gap: 8px;
-            color: #6b001d;
+            color: #7b0d38;
             font-weight: 700;
             font-size: 15px;
             margin-bottom: 10px;
@@ -250,10 +289,10 @@ it is <!DOCTYPE html>
 
         .payment-methods {
             display: flex;
-            gap: 12px;
+            gap: 10px;
             flex-wrap: wrap;
             justify-content: center;
-            margin: 8px 0;
+            margin: 6px 0 10px 0;
         }
 
         .pay-pill {
@@ -264,6 +303,7 @@ it is <!DOCTYPE html>
             display: inline-flex;
             align-items: center;
             gap: 6px;
+            cursor: pointer;
         }
 
         .pay-pill.online {
@@ -279,19 +319,11 @@ it is <!DOCTYPE html>
         }
 
         .payment-icons {
-            margin-top: 10px;
+            margin-top: 6px;
             display: flex;
-            gap: 15px;
-            color: #555;
-            font-size: 18px;
-        }
-
-        .payment-icons i {
-            transition: color 0.3s;
-        }
-
-        .payment-icons i:hover {
-            color: #6b001d;
+            gap: 16px;
+            color: #7b0d38;
+            font-size: 20px;
         }
 
         /* Search Box */
@@ -310,7 +342,7 @@ it is <!DOCTYPE html>
         .search-box input {
             width: 100%;
             padding: 12px 16px 12px 42px;
-            border: 1px solid #e0e0e0;
+            border: 1px solid #e2d8ce;
             border-radius: 25px;
             font-size: 14px;
             outline: none;
@@ -326,7 +358,7 @@ it is <!DOCTYPE html>
             color: #888;
         }
 
-        /* Categories Filter Buttons */
+        /* Categories Filter Tabs */
         .categories {
             display: flex;
             justify-content: center;
@@ -339,7 +371,7 @@ it is <!DOCTYPE html>
         .cat-btn {
             padding: 8px 20px;
             border-radius: 20px;
-            border: 1px solid #e0e0e0;
+            border: 1px solid #e2d8ce;
             background: #fff;
             color: #555;
             font-size: 13px;
@@ -349,10 +381,10 @@ it is <!DOCTYPE html>
         }
 
         .cat-btn.active {
-            background: #6b001d;
+            background: #7b0d38;
             color: #fff;
-            border-color: #6b001d;
-            box-shadow: 0 3px 10px rgba(107,0,29,0.3);
+            border-color: #7b0d38;
+            box-shadow: 0 3px 10px rgba(123, 13, 56, 0.3);
         }
 
         /* Section Block Styling */
@@ -363,6 +395,7 @@ it is <!DOCTYPE html>
             margin: 20px auto;
             max-width: 1200px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            border: 1px solid #f2e9e1;
         }
 
         .section-header {
@@ -371,7 +404,7 @@ it is <!DOCTYPE html>
         }
 
         .section-header h2 {
-            color: #6b001d;
+            color: #7b0d38;
             font-size: 20px;
             font-weight: 700;
             text-transform: uppercase;
@@ -426,7 +459,7 @@ it is <!DOCTYPE html>
             position: absolute;
             top: 10px;
             left: 10px;
-            background: #6b001d;
+            background: #7b0d38;
             color: #fff;
             font-size: 10px;
             font-weight: 700;
@@ -487,7 +520,7 @@ it is <!DOCTYPE html>
             gap: 6px;
         }
 
-        /* Modal Popups */
+        /* MODAL POPUPS FOR BADGES */
         .modal-overlay {
             display: none;
             position: fixed;
@@ -510,8 +543,9 @@ it is <!DOCTYPE html>
             width: 100%;
             text-align: center;
             position: relative;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.25);
             animation: popup 0.3s ease-out;
+            border: 2px solid #d4af37;
         }
 
         @keyframes popup {
@@ -523,21 +557,22 @@ it is <!DOCTYPE html>
             position: absolute;
             top: 10px;
             right: 15px;
-            font-size: 22px;
+            font-size: 24px;
             cursor: pointer;
             color: #888;
         }
 
         .modal-icon {
-            font-size: 36px;
+            font-size: 40px;
             color: #d4af37;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
         .modal-content h3 {
-            color: #6b001d;
+            color: #7b0d38;
             font-size: 18px;
             margin-bottom: 10px;
+            font-weight: 700;
         }
 
         .modal-content p {
@@ -548,12 +583,13 @@ it is <!DOCTYPE html>
 
         /* Footer */
         footer {
-            background: #1a1a1a;
+            background: #1e1418;
             color: #ccc;
             text-align: center;
             padding: 30px 16px;
             margin-top: 40px;
             font-size: 13px;
+            border-top: 3px solid #7b0d38;
         }
 
         footer h3 {
@@ -597,22 +633,27 @@ it is <!DOCTYPE html>
                     <p>Elegance Clothing</p>
                 </div>
             </a>
-            <a href="https://wa.me/917825076622" class="header-wa-btn"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://wa.me/917825076622" class="header-wa-btn" title="Contact WhatsApp"><i class="fab fa-whatsapp"></i></a>
         </div>
     </header>
 
-    <!-- Animated Welcome Hero Section -->
+    <!-- Animated Welcome Hero Section with Model Image & Greeting -->
     <section class="hero-welcome">
-        <div class="vanakkam-box">
-            <i class="fas fa-hands-praying vanakkam-icon"></i>
+        <div class="model-container">
+            <img src="IMG_20260809_183707713_HDR.jpg" alt="AngiraAura Welcome Model" class="model-avatar">
+            <div class="vanakkam-badge">
+                <i class="fas fa-hands-praying"></i> வணக்கம்! Welcome
+            </div>
         </div>
-        <h2 class="welcome-title">வணக்கம்! Welcome to AngiraAura</h2>
-        <p class="welcome-subtitle">Premium Ethnic Wear • Kurtis • Chudithars • Nighties</p>
+
+        <h2 class="welcome-title">AngiraAura Ethnic Wear</h2>
+        <p class="welcome-subtitle">Exclusive Designer Kurtis • Chudithars • Cotton Nighties</p>
         
+        <!-- Interactive Badges (Click to open details) -->
         <div class="hero-badges">
             <span class="h-badge" onclick="openModal('qualityModal')"><i class="fas fa-star"></i> 100% Quality Fabric</span>
-            <span class="h-badge" onclick="openModal('shippingModal')"><i class="fas fa-shipping-fast"></i> Express Shipping</span>
-            <span class="h-badge" onclick="openModal('paymentModal')"><i class="fas fa-lock"></i> Safe Online Pay</span>
+            <span class="h-badge" onclick="openModal('shippingModal')"><i class="fas fa-truck-fast"></i> Express Shipping</span>
+            <span class="h-badge" onclick="openModal('paymentModal')"><i class="fas fa-shield-check"></i> Safe Online Pay</span>
         </div>
 
         <a href="https://wa.me/917825076622?text=Hello%20AngiraAura%20Clothing,%20I%20want%20to%20place%20an%20order" class="hero-cta">
@@ -624,20 +665,20 @@ it is <!DOCTYPE html>
     <div class="payment-banner">
         <div class="payment-card">
             <div class="payment-header">
-                <i class="fas fa-credit-card"></i> Payment & Policy Notice
+                <i class="fas fa-credit-card"></i> Payment Policy & Methods
             </div>
             <div class="payment-methods">
-                <span class="pay-pill online"><i class="fas fa-check-circle"></i> Online Payment Only</span>
-                <span class="pay-pill no-cod"><i class="fas fa-times-circle"></i> No Cash On Delivery (No COD)</span>
+                <span class="pay-pill online" onclick="openModal('paymentModal')"><i class="fas fa-check-circle"></i> Online Payment Only</span>
+                <span class="pay-pill no-cod" onclick="openModal('paymentModal')"><i class="fas fa-times-circle"></i> No Cash On Delivery (No COD)</span>
             </div>
-            <p style="font-size: 12px; color: #666; margin-top: 6px;">
-                We accept GPay, PhonePe, Paytm, UPI & Net Banking for safe & fast dispatch.
+            <p style="font-size: 12px; color: #666; margin-top: 4px;">
+                We accept GPay, PhonePe, Paytm, UPI & Direct Bank Transfer.
             </p>
             <div class="payment-icons">
                 <i class="fab fa-google-pay" title="GPay"></i>
                 <i class="fas fa-mobile-alt" title="UPI"></i>
                 <i class="fas fa-university" title="Bank Transfer"></i>
-                <i class="fas fa-lock" title="Secure"></i>
+                <i class="fas fa-lock" title="100% Safe"></i>
             </div>
         </div>
     </div>
